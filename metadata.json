@@ -1,0 +1,8 @@
+{
+  "name": "RuralConnect",
+  "description": "AI-powered Skills, Jobs, and Opportunities Platform for rural and underserved communities, featuring SMS/USSD emulation and interactive blueprints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
