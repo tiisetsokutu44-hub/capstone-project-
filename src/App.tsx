@@ -49,7 +49,7 @@ import {
 
 export default function App() {
   // State for Navigation and Portals
-  const [activeTab, setActiveTab] = useState<"demo" | "seekers" | "employers" | "training" | "admin" | "blueprints">("demo");
+  const [activeTab, setActiveTab] = useState<"demo" | "seekers" | "employers" | "training" | "admin" | "blueprints">("seekers");
   const [activeBlueprintSubTab, setActiveBlueprintSubTab] = useState<"prd" | "arch" | "db" | "api" | "agents" | "ussdflow" | "roadmap">("prd");
   
   // Real-time backend data
@@ -541,35 +541,35 @@ export default function App() {
   };
 
   return (
-    <div id="ruralconnect-main-container" className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-teal-500 selection:text-slate-900">
+    <div id="ruralconnect-main-container" className="min-h-screen bg-[#fcfaf7] text-stone-900 font-sans selection:bg-emerald-200 selection:text-emerald-900">
       
       {/* GLOBAL COHESIVE BRAND HEADER */}
-      <header id="rc-app-header" className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-40">
+      <header id="rc-app-header" className="border-b border-stone-200/80 bg-white/95 sticky top-0 z-40 shadow-sm backdrop-blur">
         <div className="max-w-7xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-xl text-slate-900 shadow-md shadow-teal-500/10">
+            <div className="p-2.5 bg-gradient-to-tr from-emerald-600 to-amber-500 rounded-xl text-white shadow-md shadow-emerald-600/10">
               <Cpu className="h-6 w-6 stroke-[2.2]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-bold tracking-tight text-white">RURAL<span className="text-teal-400">CONNECT</span></span>
-                <span className="text-[10px] bg-teal-500/10 text-teal-400 border border-teal-500/20 px-1.5 py-0.5 rounded-full font-mono">v1.2 Pilot Scaffold</span>
+                <span className="text-xl font-bold tracking-tight text-stone-900">RURAL<span className="text-emerald-600">CONNECT</span></span>
+                <span className="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-mono font-semibold">v1.2 Pilot Scaffold</span>
               </div>
-              <p className="text-xs text-slate-400">Offline-First Job Opportunities & Skills Decoupling Ecosystem</p>
+              <p className="text-xs text-stone-500">Offline-First Job Opportunities & Skills Decoupling Ecosystem</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2.5 flex-wrap">
-            <div className="flex bg-slate-800/80 p-0.5 rounded-lg border border-slate-700/60 text-xs">
+            <div className="flex bg-stone-100 p-0.5 rounded-lg border border-stone-200 text-xs">
               <button 
                 onClick={() => setSimulationPhone("+254711223344")}
-                className={`px-2.5 py-1 rounded-md transition-all ${simulationPhone === "+254711223344" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-300 hover:text-white"}`}
+                className={`px-2.5 py-1 rounded-md transition-all ${simulationPhone === "+254711223344" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900"}`}
               >
                 SIM 1 (+25471122)
               </button>
               <button 
                 onClick={() => setSimulationPhone("+254722556677")}
-                className={`px-2.5 py-1 rounded-md transition-all ${simulationPhone === "+254722556677" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-300 hover:text-white"}`}
+                className={`px-2.5 py-1 rounded-md transition-all ${simulationPhone === "+254722556677" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900"}`}
               >
                 SIM 2 (+25472255)
               </button>
@@ -578,7 +578,7 @@ export default function App() {
             <button 
               onClick={handleResetSystem}
               disabled={loading.reset}
-              className="flex items-center gap-1.5 bg-red-950/40 text-red-400 hover:bg-red-900/40 border border-red-500/20 px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-colors"
+              className="flex items-center gap-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200/60 px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors shadow-xs"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${loading.reset ? "animate-spin" : ""}`} />
               Reset Engine
@@ -588,77 +588,67 @@ export default function App() {
       </header>
 
       {/* METRICS DASHBOARD BANNER */}
-      <section id="rc-analytics-row" className="bg-slate-950 border-b border-slate-800 py-4">
+      <section id="rc-analytics-row" className="bg-[#f7f5ee] border-b border-stone-200 py-4.5 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-5 gap-4">
-          <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800 flex items-center gap-3">
-            <div className="p-2 bg-teal-500/10 text-teal-400 rounded">
+          <div className="bg-white p-3.5 rounded-xl border border-stone-200 flex items-center gap-3 transition-colors hover:border-emerald-300">
+            <div className="p-2 bg-emerald-50 text-emerald-700 rounded-lg">
               <Users className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-lg font-bold font-mono text-white">{metrics.totalSeekers}</div>
-              <div className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Rural Seekers</div>
+              <div className="text-lg font-bold font-mono text-stone-900">{metrics.totalSeekers}</div>
+              <div className="text-[10px] text-stone-500 uppercase tracking-wider font-bold">Rural Seekers</div>
             </div>
           </div>
 
-          <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800 flex items-center gap-3">
-            <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded">
+          <div className="bg-white p-3.5 rounded-xl border border-stone-200 flex items-center gap-3 transition-colors hover:border-emerald-300">
+            <div className="p-2 bg-amber-50 text-amber-700 rounded-lg">
               <Briefcase className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-lg font-bold font-mono text-white">{metrics.totalJobs}</div>
-              <div className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Active Jobs</div>
+              <div className="text-lg font-bold font-mono text-stone-900">{metrics.totalJobs}</div>
+              <div className="text-[10px] text-stone-500 uppercase tracking-wider font-bold">Active Jobs</div>
             </div>
           </div>
 
-          <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800 flex items-center gap-3">
-            <div className="p-2 bg-indigo-400/10 text-indigo-400 rounded">
+          <div className="bg-white p-3.5 rounded-xl border border-stone-200 flex items-center gap-3 transition-colors hover:border-emerald-300">
+            <div className="p-2 bg-emerald-50 text-emerald-800 rounded-lg">
               <Award className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-lg font-bold font-mono text-white">{metrics.skillsExtracted}</div>
-              <div className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Skills Decoupled</div>
+              <div className="text-lg font-bold font-mono text-stone-900">{metrics.skillsExtracted}</div>
+              <div className="text-[10px] text-stone-500 uppercase tracking-wider font-bold">Skills Decoupled</div>
             </div>
           </div>
 
-          <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800 flex items-center gap-3">
-            <div className="p-2 bg-amber-500/10 text-amber-400 rounded">
+          <div className="bg-white p-3.5 rounded-xl border border-stone-200 flex items-center gap-3 transition-colors hover:border-emerald-305">
+            <div className="p-2 bg-rose-50 text-rose-700 rounded-lg">
               <ShieldAlert className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-lg font-bold font-mono text-white">{metrics.fraudPrevented}/{metrics.fraudScansPerformed}</div>
-              <div className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Scams Prevented</div>
+              <div className="text-lg font-bold font-mono text-stone-900">{metrics.fraudPrevented}/{metrics.fraudScansPerformed}</div>
+              <div className="text-[10px] text-stone-500 uppercase tracking-wider font-bold">Scams Blocked</div>
             </div>
           </div>
 
-          <div className="bg-slate-900/60 p-3 col-span-2 md:col-span-1 rounded-lg border border-slate-800 flex items-center gap-3">
-            <div className="p-2 bg-cyan-500/10 text-cyan-400 rounded">
+          <div className="bg-white p-3.5 col-span-2 md:col-span-1 rounded-xl border border-stone-200 flex items-center gap-3 transition-colors hover:border-emerald-300">
+            <div className="p-2 bg-stone-100 text-stone-700 rounded-lg">
               <Smartphone className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-lg font-bold font-mono text-white">{metrics.smsProcessed + metrics.ussdSessions}</div>
-              <div className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Mobile Sessions</div>
+              <div className="text-lg font-bold font-mono text-stone-900">{metrics.smsProcessed + metrics.ussdSessions}</div>
+              <div className="text-[10px] text-stone-500 uppercase tracking-wider font-bold">Mobile Sessions</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CORE PORTAL TABS */}
-      <nav id="rc-navigation-bar" className="bg-slate-950/40 border-b border-slate-800 sticky top-[69px] z-30 backdrop-blur-md">
+      <nav id="rc-navigation-bar" className="bg-white border-b border-stone-200 sticky top-[69px] z-30 backdrop-blur-md shadow-xs">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-start overflow-x-auto gap-1">
           <button
-            onClick={() => setActiveTab("demo")}
-            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap ${
-              activeTab === "demo" ? "border-teal-400 text-teal-400 bg-slate-900/30" : "border-transparent text-slate-400 hover:text-slate-200"
-            }`}
-          >
-            <Smartphone className="h-4 w-4" />
-            Low-Tech Simulators
-          </button>
-          
-          <button
             onClick={() => setActiveTab("seekers")}
-            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap ${
-              activeTab === "seekers" ? "border-teal-400 text-teal-400 bg-slate-900/30" : "border-transparent text-slate-400 hover:text-slate-200"
+            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-semibold text-sm transition-all whitespace-nowrap ${
+              activeTab === "seekers" ? "border-emerald-600 text-emerald-800 bg-emerald-50/20 font-bold" : "border-transparent text-stone-500 hover:text-stone-850 hover:bg-stone-50/40"
             }`}
           >
             <Users className="h-4 w-4" />
@@ -667,8 +657,8 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab("employers")}
-            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap ${
-              activeTab === "employers" ? "border-teal-400 text-teal-400 bg-slate-900/30" : "border-transparent text-slate-400 hover:text-slate-200"
+            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-semibold text-sm transition-all whitespace-nowrap ${
+              activeTab === "employers" ? "border-emerald-600 text-emerald-800 bg-emerald-50/20 font-bold" : "border-transparent text-stone-500 hover:text-stone-850 hover:bg-stone-50/40"
             }`}
           >
             <Briefcase className="h-4 w-4" />
@@ -677,8 +667,8 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab("training")}
-            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap ${
-              activeTab === "training" ? "border-teal-400 text-teal-400 bg-slate-900/30" : "border-transparent text-slate-400 hover:text-slate-200"
+            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-semibold text-sm transition-all whitespace-nowrap ${
+              activeTab === "training" ? "border-emerald-600 text-emerald-800 bg-emerald-50/20 font-bold" : "border-transparent text-stone-500 hover:text-stone-850 hover:bg-stone-50/40"
             }`}
           >
             <BookOpen className="h-4 w-4" />
@@ -687,8 +677,8 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab("admin")}
-            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap ${
-              activeTab === "admin" ? "border-teal-400 text-teal-400 bg-slate-900/30" : "border-transparent text-slate-400 hover:text-slate-200"
+            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-semibold text-sm transition-all whitespace-nowrap ${
+              activeTab === "admin" ? "border-emerald-600 text-emerald-800 bg-emerald-50/20 font-bold" : "border-transparent text-stone-500 hover:text-stone-850 hover:bg-stone-50/40"
             }`}
           >
             <Settings className="h-4 w-4" />
@@ -697,8 +687,8 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab("blueprints")}
-            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap ${
-              activeTab === "blueprints" ? "border-teal-400 text-teal-400 bg-slate-900/30" : "border-transparent text-teal-400 hover:text-teal-200 font-semibold"
+            className={`flex items-center gap-2 py-4 px-4 border-b-2 font-semibold text-sm transition-all whitespace-nowrap ${
+              activeTab === "blueprints" ? "border-emerald-600 text-emerald-800 bg-emerald-50/20 font-bold" : "border-transparent text-stone-500 hover:text-stone-850 hover:bg-stone-50/40"
             }`}
           >
             <Database className="h-4 w-4" />
@@ -710,304 +700,23 @@ export default function App() {
       {/* CORE WORKSPACE CONTENT GRID */}
       <main className="max-w-7xl mx-auto px-4 py-8">
         
-        {/* TAB 1: LOW-TECH USSD / SMS INTERACTIVE SIMULATORS */}
-        {activeTab === "demo" && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* SIMULATION PHONE FRAME MOCK */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="w-full max-w-[340px] bg-slate-950 p-5 rounded-[44px] shadow-2xl border-4 border-slate-800 relative ring-1 ring-teal-500/20">
-                
-                {/* Notch */}
-                <div className="w-24 h-4 bg-slate-800 rounded-full mx-auto mb-4 absolute top-2 left-1/2 -translate-x-1/2"></div>
-                
-                {/* Simulator Mode Selector */}
-                <div className="grid grid-cols-2 bg-slate-900 rounded-full p-1 border border-slate-800 mb-4 mt-2">
-                  <button 
-                    onClick={() => { setSimulatorMode("ussd"); handleCancelUssd(); }}
-                    className={`py-1.5 rounded-full text-xs font-semibold ${simulatorMode === "ussd" ? "bg-teal-500 text-slate-950 shadow" : "text-slate-400 hover:text-slate-200"}`}
-                  >
-                    USSD Simulator (*123#)
-                  </button>
-                  <button 
-                    onClick={() => setSimulatorMode("sms")}
-                    className={`py-1.5 rounded-full text-xs font-semibold ${simulatorMode === "sms" ? "bg-teal-500 text-slate-950 shadow" : "text-slate-400 hover:text-slate-200"}`}
-                  >
-                    SMS Terminal
-                  </button>
-                </div>
-
-                {/* ACTIVE PHONE DISPLAY SCREEN */}
-                <div className="w-full aspect-[3/4] bg-neutral-900 rounded-2xl p-4 overflow-y-auto font-mono text-xs border border-slate-800 flex flex-col justify-between relative shadow-inner">
-                  {simulatorMode === "ussd" ? (
-                    // USSD UI SCREEN
-                    ussdSessionActive ? (
-                      <div className="flex flex-col justify-between h-full text-amber-200">
-                        <div className="whitespace-pre-wrap leading-relaxed">
-                          {ussdScreen}
-                        </div>
-                        
-                        {/* Interactive numeric input within the popup */}
-                        {!ussdScreen.startsWith("END") && (
-                          <form onSubmit={handleSendUssdResponse} className="mt-4 border-t border-amber-900/30 pt-3">
-                            <label className="block text-[10px] text-amber-400/80 mb-1">Enter your response:</label>
-                            <div className="flex gap-1.5">
-                              <input
-                                type="text"
-                                value={ussdInputFieldValue}
-                                onChange={(e) => setUssdInputFieldValue(e.target.value)}
-                                placeholder="Number/Input text"
-                                className="bg-black text-amber-100 border border-amber-500/40 rounded px-2 py-1 w-full text-xs focus:outline-none focus:border-amber-400"
-                                autoFocus
-                              />
-                              <button 
-                                type="submit"
-                                className="bg-amber-500 hover:bg-amber-400 text-black font-bold px-3 py-1 rounded cursor-pointer text-[11px]"
-                              >
-                                Send
-                              </button>
-                            </div>
-                          </form>
-                        )}
-
-                        <div className="flex justify-between text-[10px] border-t border-amber-900/30 pt-2.5 mt-2.5 text-slate-400">
-                          <span>Phone: {simulationPhone}</span>
-                          <button 
-                            type="button" 
-                            onClick={handleCancelUssd}
-                            className="text-red-400 font-bold underline hover:text-red-300"
-                          >
-                            Exit Session [Cancel]
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      // Idle/Dial State
-                      <div className="flex flex-col justify-between h-full text-slate-400">
-                        <div className="text-center mt-6">
-                          <p className="text-xl font-bold tracking-widest text-slate-200 mb-1">RuralConnect</p>
-                          <p className="text-[10px]">No internet connection detected</p>
-                          <div className="mt-8 border border-slate-800/80 rounded bg-slate-950 p-2 text-center text-slate-300">
-                            SIM Carrier Network Ready
-                          </div>
-                        </div>
-
-                        <div className="mt-auto">
-                          <label className="text-[10px] block mb-1">Dial RuralConnect USSD Access Code:</label>
-                          <div className="flex gap-2">
-                            <input
-                              type="text"
-                              value={ussdDialText}
-                              onChange={(e) => setUssdDialText(e.target.value)}
-                              className="bg-black text-white text-base tracking-wider border border-slate-700 rounded px-2.5 py-1.5 w-full text-center"
-                            />
-                            <button
-                              onClick={handleDialUssd}
-                              disabled={loading.ussdSim}
-                              className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-3 py-1.5 rounded"
-                            >
-                              Dial
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  ) : (
-                    // SMS UI SCREEN
-                    <div className="flex flex-col h-full justify-between">
-                      <div className="bg-slate-950 p-2 border-b border-slate-800 -mx-4 -mt-4 text-center text-[10px] text-white font-bold tracking-tight">
-                        💬 Shortcode: 22444
-                      </div>
-
-                      <div className="flex-1 overflow-y-auto space-y-3 py-3 font-sans text-xs scrollbar-thin">
-                        {smsHistory.map((msg, i) => (
-                          <div key={i} className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}>
-                            <div className={`p-2.5 rounded-xl max-w-[85%] leading-relaxed ${
-                              msg.sender === "user" 
-                                ? "bg-teal-600 text-white rounded-br-none" 
-                                : "bg-slate-800 text-slate-100 rounded-bl-none border border-slate-700/60"
-                            }`}>
-                              <p className="whitespace-pre-line text-[11px]">{msg.text}</p>
-                              {msg.parsedAgent && (
-                                <div className="text-[8px] mt-1 text-teal-300 flex items-center gap-1 uppercase tracking-wider font-mono font-semibold">
-                                  <Cpu className="h-2 w-2 animate-pulse" />
-                                  {msg.parsedAgent}
-                                </div>
-                              )}
-                            </div>
-                            <span className="text-[9px] text-slate-500 mt-1 px-1">{msg.time}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="border-t border-slate-800 pt-2.5 -mx-4 -mb-4 bg-slate-950 p-2.5">
-                        <div className="flex gap-1.5">
-                          <input
-                            type="text"
-                            value={smsInputField}
-                            onChange={(e) => setSmsInputField(e.target.value)}
-                            placeholder="Type SMS command..."
-                            className="bg-neutral-900 border border-slate-700 text-white rounded px-2.5 py-1.5 w-full text-xs font-sans focus:outline-none"
-                            onKeyDown={(e) => e.key === "Enter" && handleSendSimulatedSms()}
-                          />
-                          <button
-                            onClick={handleSendSimulatedSms}
-                            className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-3 py-1 rounded font-sans text-xs"
-                          >
-                            Send
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Tactical Physical Buttons Row */}
-                <div className="grid grid-cols-3 gap-2 mt-4 max-w-[240px] mx-auto">
-                  <button 
-                    onClick={() => simulationPhone === "+254711223344" ? setSimulationPhone("+254722556677") : setSimulationPhone("+254711223344")}
-                    className="aspect-square rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-[10px] hover:bg-slate-800 flex items-center justify-center font-bold"
-                  >
-                    Swap SIM
-                  </button>
-                  <button 
-                    onClick={() => {
-                      if (simulatorMode === "ussd" && ussdSessionActive) handleCancelUssd();
-                      else if(simulatorMode === "sms") setSmsHistory([{ sender: "system", text: "Inbox cleared.", time: "10:00" }]);
-                    }}
-                    className="aspect-square rounded-full bg-slate-900 border border-slate-800 text-red-400 text-[10px] hover:bg-slate-800 flex items-center justify-center font-bold"
-                  >
-                    Cancel
-                  </button>
-                  <button 
-                    onClick={() => {
-                      if (simulatorMode === "ussd" && !ussdSessionActive) {
-                        setUssdDialText("*123#");
-                        handleDialUssd();
-                      }
-                    }}
-                    className="aspect-square rounded-full bg-teal-500/20 border border-teal-500/40 text-teal-400 text-[10px] hover:bg-teal-500/30 flex items-center justify-center font-bold animate-pulse"
-                  >
-                    CALL
-                  </button>
-                </div>
-
-                <div className="text-center text-[9px] text-slate-500 mt-4 uppercase tracking-wider font-semibold">
-                  Nokia Micro-Simulation Phone
-                </div>
-              </div>
-            </div>
-
-            {/* QUICK TEST GUIDES - THE USSD / SMS INTERACTIVE SCENARIOS */}
-            <div className="lg:col-span-7 space-y-6">
-              
-              <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-2">
-                  <Smartphone className="h-5 w-5 text-teal-400" />
-                  Understanding the Simulated Hardware Integration
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  In rural Africa, most job seekers do not have smartphones. RuralConnect resolves this by building a dual SMS and USSD system linked to a **multi-agent AI pipeline**. The simulator to the left communicates directly with real HTTP pathways configured inside our server!
-                </p>
-
-                <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-3 bg-teal-950/20 rounded-xl border border-teal-500/10">
-                    <span className="text-xs text-teal-400 font-bold uppercase tracking-wider">USSD Testing Walkthrough</span>
-                    <ol className="text-xs space-y-2 mt-2 text-slate-300 list-decimal pl-4">
-                      <li>Type <code className="text-teal-400">*123#</code> and click <kbd className="text-white bg-slate-800 px-1 py-0.5 rounded text-[10px]">Dial</kbd></li>
-                      <li>Dial <code className="text-emerald-400">1</code> to select Name enrollment</li>
-                      <li>Supply a name, village (e.g. <code className="text-pink-300">Kitui</code>), and brief unstructured experience (e.g. <code className="text-pink-300">I do sewing clothes</code>)</li>
-                      <li>Acknowledge real-time skill extraction, then dial again to match local jobs or free learnerships!</li>
-                    </ol>
-                  </div>
-
-                  <div className="p-3 bg-teal-950/20 rounded-xl border border-teal-500/10">
-                    <span className="text-xs text-teal-400 font-bold uppercase tracking-wider">SMS Keyword Triggers</span>
-                    <p className="text-xs text-slate-300 mt-1 mb-2.5">Switch to the SMS Simulator and tap any template string below to load it into your phone:</p>
-                    
-                    <div className="space-y-1.5">
-                      <button 
-                        onClick={() => handleQuickSmsCommand("HELP")}
-                        className="block w-full text-left bg-slate-900 hover:bg-slate-800 p-1.5 rounded text-[10px] font-mono text-slate-300 border border-slate-800"
-                      >
-                        📬 HELP
-                      </button>
-                      <button 
-                        onClick={() => handleQuickSmsCommand("REGISTER Peter Mulei # Machakos # I fix broken water valves and harvest coffee beans")}
-                        className="block w-full text-left bg-slate-900 hover:bg-slate-800 p-1.5 rounded text-[10px] font-mono text-slate-300 border border-slate-800 truncate"
-                      >
-                        📝 REGISTER Peter Mulei # Machakos # ...
-                      </button>
-                      <button 
-                        onClick={() => handleQuickSmsCommand("JOBS")}
-                        className="block w-full text-left bg-slate-900 hover:bg-slate-800 p-1.5 rounded text-[10px] font-mono text-slate-300 border border-slate-800"
-                      >
-                        🔍 JOBS (Show local listings matching profile)
-                      </button>
-                      <button 
-                        onClick={() => handleQuickSmsCommand("COURSES")}
-                        className="block w-full text-left bg-slate-900 hover:bg-slate-800 p-1.5 rounded text-[10px] font-mono text-slate-300 border border-slate-800"
-                      >
-                        🎓 COURSES (View NGO skill workshops)
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* DEMO ENGINE ARCHITECTURE DIAGRAM SUMMARY */}
-              <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-                <h4 className="text-xs uppercase tracking-wider font-bold text-slate-400 mb-4 flex items-center justify-between">
-                  <span>Simulated Multi-Agent Execution Log</span>
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
-                </h4>
-
-                <div className="space-y-3.5">
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-start gap-3">
-                    <span className="p-1 px-2.5 bg-indigo-500/10 text-indigo-400 font-mono text-[10px] rounded font-bold">AGENT-1</span>
-                    <div>
-                      <p className="text-xs text-slate-200 font-semibold">Skills Extraction Agent (Gemini API)</p>
-                      <p className="text-[11px] text-slate-400 mt-1">Converts simple descriptions (e.g., "I stitch dresses") into standard structured taxonomy: <code className="text-indigo-300">["Tailoring & Pattern-making", "Garment Construction"]</code>.</p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-start gap-3">
-                    <span className="p-1 px-2.5 bg-emerald-500/10 text-emerald-400 font-mono text-[10px] rounded font-bold">AGENT-2</span>
-                    <div>
-                      <p className="text-xs text-slate-200 font-semibold">AI Job Compatibility Matcher (Gemini Match Engine)</p>
-                      <p className="text-[11px] text-slate-400 mt-1">Cross-analyzes structured seeker profiles with active employer mandates. Computes real compatibility scores and generates easy-to-understand explanations.</p>
-                    </div>
-                  </div>
-
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-start gap-3">
-                    <span className="p-1 px-2.5 bg-red-400/10 text-red-400 font-mono text-[10px] rounded font-bold">AGENT-4</span>
-                    <div>
-                      <p className="text-xs text-slate-200 font-semibold">AI Job Scam & Fraud Intelligence Agent</p>
-                      <p className="text-[11px] text-slate-400 mt-1">Audits all employer postings for micro-scams, upfront fee demands, or unrealistic salary promises. Flags postings and adds safety scores.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        )}
+        {/* Simulated mobile console removed as requested */}
 
 
         {/* TAB 2: JOB SEEKER WEB PORTAL */}
         {activeTab === "seekers" && (
           <div className="space-y-8">
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800">
+            <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Users className="text-teal-400 hover:scale-110 transition-transform" />
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                    <Users className="text-emerald-600 hover:scale-110 transition-transform" />
                     Web Portal Seeker Intake Hub
                   </h3>
-                  <p className="text-xs text-slate-400">Allows field workers or agency staff to register candidates with speech-to-text or structured descriptions.</p>
+                  <p className="text-xs text-stone-500">Allows field workers or agency staff to register candidates with speech-to-text or structured descriptions.</p>
                 </div>
                 
-                <div className="text-xs bg-teal-500/10 text-teal-400 border border-teal-500/30 p-2 rounded-lg max-w-sm">
+                <div className="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 p-2.5 rounded-lg max-w-sm font-medium">
                   💡 **Tip:** Use Seeker templates below to fill the form in one click!
                 </div>
               </div>
@@ -1019,49 +728,49 @@ export default function App() {
                     key={idx}
                     type="button"
                     onClick={() => handleApplyTemplateSeeker(tpl)}
-                    className="p-3 bg-slate-900 hover:bg-slate-850 text-left rounded-xl border border-slate-800 hover:border-slate-700 transition"
+                    className="p-3 bg-stone-50 hover:bg-emerald-50/20 text-left rounded-xl border border-stone-200 hover:border-emerald-300 transition-all font-sans cursor-pointer group"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-bold text-white font-sans">{tpl.name}</span>
-                      <span className="text-[9px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono uppercase">{tpl.location}</span>
+                      <span className="text-xs font-bold text-stone-800 font-sans group-hover:text-emerald-800">{tpl.name}</span>
+                      <span className="text-[9px] bg-stone-200/50 text-stone-600 px-1.5 py-0.5 rounded font-mono uppercase font-semibold">{tpl.location}</span>
                     </div>
-                    <p className="text-[11px] text-slate-400 truncate">"{tpl.description}"</p>
+                    <p className="text-[11px] text-stone-500 truncate italic">"{tpl.description}"</p>
                   </button>
                 ))}
               </div>
 
               {/* Seeker Input Form */}
-              <form onSubmit={handleRegisterSeekerWeb} className="grid grid-cols-1 md:grid-cols-12 gap-5 border-t border-slate-900 pt-6">
+              <form onSubmit={handleRegisterSeekerWeb} className="grid grid-cols-1 md:grid-cols-12 gap-5 border-t border-stone-100 pt-6">
                 <div className="md:col-span-4">
-                  <label className="block text-slate-300 text-xs font-semibold mb-1.5">Candidate Full Name</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Candidate Full Name</label>
                   <input
                     type="text"
                     required
                     value={seekerForm.name}
                     onChange={(e) => setSeekerForm({ ...seekerForm, name: e.target.value })}
                     placeholder="e.g. Mercy Wanjiku"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-4">
-                  <label className="block text-slate-300 text-xs font-semibold mb-1.5">Phone Number (SIM identity)</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Phone Number (SIM identity)</label>
                   <input
                     type="text"
                     required
                     value={seekerForm.phone}
                     onChange={(e) => setSeekerForm({ ...seekerForm, phone: e.target.value })}
                     placeholder="e.g. +254700112233"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-4">
-                  <label className="block text-slate-300 text-xs font-semibold mb-1.5">Primary Location / Hub</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Primary Location / Hub</label>
                   <select
                     value={seekerForm.location}
                     onChange={(e) => setSeekerForm({ ...seekerForm, location: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   >
                     <option value="Machakos">Machakos Town Area</option>
                     <option value="Kitui">Kitui Core District</option>
@@ -1070,14 +779,14 @@ export default function App() {
                 </div>
 
                 <div className="md:col-span-12">
-                  <label className="block text-slate-300 text-xs font-semibold mb-1.5">Informal Background or Handcraft Experience (AI extraction will decouple this)</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Informal Background or Handcraft Experience (AI extraction will decouple this)</label>
                   <textarea
                     rows={3}
                     required
                     value={seekerForm.informalExperience}
                     onChange={(e) => setSeekerForm({ ...seekerForm, informalExperience: e.target.value })}
                     placeholder="Describe daily physical labor or artisanal skills in simple language. e.g., 'I know how to stitch school dresses, fix pedal sewing machines, and pick tea leaf crops during harvest seasons.'"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-3 text-xs focus:ring-1 focus:ring-teal-500 font-sans"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-3 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden font-sans"
                   />
                 </div>
 
@@ -1085,7 +794,7 @@ export default function App() {
                   <button
                     type="submit"
                     disabled={loading.registerWeb}
-                    className="bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-bold px-6 py-2 rounded-lg cursor-pointer text-xs flex items-center gap-1.5 shadow"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-lg cursor-pointer text-xs flex items-center gap-1.5 shadow-sm transition-all"
                   >
                     {loading.registerWeb ? "Analyzing with Gemini..." : "Extract Skills & Save Candidate"}
                   </button>
@@ -1098,10 +807,10 @@ export default function App() {
               
               {/* Left Column: List Seekers in Registry */}
               <div className="lg:col-span-4 space-y-4">
-                <div className="bg-slate-950 p-4 border border-slate-800 rounded-2xl">
-                  <h4 className="text-xs uppercase font-bold tracking-wider text-slate-400 mb-4 flex items-center justify-between">
+                <div className="bg-white p-4 border border-stone-200 rounded-2xl shadow-xs">
+                  <h4 className="text-xs uppercase font-bold tracking-wider text-stone-500 mb-4 flex items-center justify-between">
                     <span>Registered Candidates ({seekers.length})</span>
-                    <Users className="h-3.5 w-3.5 text-slate-500" />
+                    <Users className="h-3.5 w-3.5 text-stone-400" />
                   </h4>
 
                   <div className="space-y-2.5 max-h-[360px] overflow-y-auto">
@@ -1111,21 +820,21 @@ export default function App() {
                         onClick={() => setSelectedSeekerId(s.id)}
                         className={`w-full text-left p-3 rounded-xl border transition-all cursor-pointer ${
                           selectedSeekerId === s.id 
-                            ? "bg-teal-500/10 border-teal-500/50 text-white" 
-                            : "bg-slate-900 border-slate-800/80 hover:bg-slate-850 text-slate-200"
+                            ? "bg-emerald-50 border-emerald-500 text-stone-900 shadow-xs" 
+                            : "bg-stone-50 border-stone-250/55 hover:bg-stone-100 text-stone-850"
                         }`}
                       >
                         <div className="flex justify-between items-start mb-1">
                           <span className="font-bold text-xs">{s.name}</span>
-                          <span className="text-[8px] uppercase font-mono px-1.5 py-0.5 bg-slate-800 text-slate-400 rounded-full">
+                          <span className="text-[8px] uppercase font-mono px-1.5 py-0.5 bg-stone-200 text-stone-600 rounded-full font-bold">
                             {s.location}
                           </span>
                         </div>
-                        <p className="text-[10px] text-slate-400 line-clamp-1 italic">"{s.informalExperience}"</p>
+                        <p className="text-[10px] text-stone-500 line-clamp-1 italic">"{s.informalExperience}"</p>
                         
                         <div className="flex flex-wrap gap-1 mt-2">
                           {s.structuredSkills.slice(0, 2).map((sk, id) => (
-                            <span key={id} className="text-[8px] bg-slate-850 px-1.5 py-0.5 text-teal-300 rounded border border-slate-800">
+                            <span key={id} className="text-[8px] bg-emerald-50 px-1.5 py-0.5 text-emerald-800 rounded border border-emerald-100 font-semibold">
                               {sk}
                             </span>
                           ))}
@@ -1137,35 +846,35 @@ export default function App() {
 
                 {/* AI CAREER GUIDANCE COMPONENT */}
                 {seekerCareerGuide && (
-                  <div className="bg-slate-950 p-4 border border-slate-800 rounded-2xl relative overflow-hidden">
-                    <div className="absolute right-2 top-2 text-indigo-500/10">
+                  <div className="bg-gradient-to-br from-emerald-50/40 to-amber-50/40 p-4 border border-stone-200 rounded-2xl relative overflow-hidden shadow-xs">
+                    <div className="absolute right-2 top-2 text-emerald-600/5">
                       <Cpu className="h-14 w-14" />
                     </div>
                     <div className="flex items-center gap-2 mb-2">
-                      <Compass className="h-4 w-4 text-indigo-400" />
-                      <h4 className="text-xs font-bold text-teal-400 uppercase tracking-widest font-mono">Agent-3 Coached Path</h4>
+                      <Compass className="h-4 w-4 text-emerald-600" />
+                      <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-widest font-mono">Agent-3 Coached Path</h4>
                     </div>
 
                     <div className="space-y-2 text-xs">
-                      <div className="bg-slate-900/40 p-2.5 rounded border border-slate-800">
-                        <span className="text-[9px] text-slate-400 uppercase font-bold block mb-0.5">Recommended Path</span>
-                        <p className="text-slate-200 text-[11px] leading-relaxed font-semibold">{seekerCareerGuide.careerPath}</p>
+                      <div className="bg-white/85 p-2.5 rounded border border-stone-200">
+                        <span className="text-[9px] text-stone-500 uppercase font-bold block mb-0.5">Recommended Path</span>
+                        <p className="text-stone-800 text-[11px] leading-relaxed font-semibold">{seekerCareerGuide.careerPath}</p>
                       </div>
 
-                      <div className="bg-slate-900/40 p-2.5 rounded border border-slate-800">
-                        <span className="text-[9px] text-slate-400 uppercase font-bold block mb-1">Empowerment course</span>
+                      <div className="bg-white/85 p-2.5 rounded border border-stone-200">
+                        <span className="text-[9px] text-stone-500 uppercase font-bold block mb-1">Empowerment course</span>
                         <div className="flex flex-wrap gap-1">
                           {seekerCareerGuide.courseAdvices.map((c, i) => (
-                            <span key={i} className="text-[10px] bg-slate-800/80 px-2 py-0.5 rounded text-indigo-300 font-mono">
+                            <span key={i} className="text-[10px] bg-emerald-50 px-2 py-0.5 rounded text-emerald-800 font-mono font-semibold border border-emerald-100">
                               {c}
                             </span>
                           ))}
                         </div>
                       </div>
 
-                      <div className="bg-slate-900/40 p-2.5 rounded border border-slate-800">
-                        <span className="text-[9px] text-slate-400 uppercase font-bold block mb-0.5">Region labor trends</span>
-                        <p className="text-slate-300 text-[10px] leading-relaxed">{seekerCareerGuide.marketDemand}</p>
+                      <div className="bg-white/85 p-2.5 rounded border border-stone-200">
+                        <span className="text-[9px] text-stone-500 uppercase font-bold block mb-0.5">Region labor trends</span>
+                        <p className="text-stone-600 text-[10px] leading-relaxed">{seekerCareerGuide.marketDemand}</p>
                       </div>
                     </div>
                   </div>
@@ -1173,18 +882,18 @@ export default function App() {
               </div>
 
               {/* Right Column: AI Match Dashboard for selected seeker */}
-              <div className="lg:col-span-8 bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-5">
-                <div className="border-b border-slate-800 pb-3">
-                  <h4 className="text-sm font-bold text-white flex items-center justify-between">
+              <div className="lg:col-span-8 bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-5">
+                <div className="border-b border-stone-200 pb-3">
+                  <h4 className="text-sm font-bold text-stone-900 flex items-center justify-between">
                     <span>AI MATCH MAKING PANEL</span>
-                    <span className="bg-teal-500/10 text-teal-400 border border-teal-500/20 px-2 py-0.5 rounded text-[10px] font-mono">Active Compatibility Agent-2</span>
+                    <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded text-[10px] font-mono font-bold">Active Compatibility Agent-2</span>
                   </h4>
                   {selectedSeekerId ? (
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Showing best job fits for candidate **{seekers.find(s => s.id === selectedSeekerId)?.name}** (Loc: {seekers.find(s => s.id === selectedSeekerId)?.location})
                     </p>
                   ) : (
-                    <p className="text-xs text-slate-400 mt-1">Please select a candidate to analyze matching opportunities.</p>
+                    <p className="text-xs text-stone-500 mt-1">Please select a candidate to analyze matching opportunities.</p>
                   )}
                 </div>
 
@@ -1206,28 +915,28 @@ export default function App() {
                       const appliedRecord = applications.find(a => a.seekerId === selectedSeekerId && a.jobId === job.id);
 
                       return (
-                        <div key={job.id} className="p-4 bg-slate-900 rounded-xl border border-slate-800 hover:border-slate-700/80 transition-all flex flex-col md:flex-row justify-between gap-4">
+                        <div key={job.id} className="p-4 bg-stone-50 rounded-xl border border-stone-200/85 hover:border-emerald-300 transition-all flex flex-col md:flex-row justify-between gap-4">
                           <div className="space-y-2 flex-1">
                             <div className="flex items-center gap-2">
-                              <span className="bg-slate-850 px-2 py-0.5 rounded text-[9px] text-slate-400 uppercase font-mono font-bold border border-slate-800">
+                              <span className="bg-stone-200 px-2 py-0.5 rounded text-[9px] text-stone-600 uppercase font-mono font-bold border border-stone-300/40">
                                 {job.id}
                               </span>
-                              <span className="text-xs text-slate-400 font-medium">{job.employerName}</span>
+                              <span className="text-xs text-stone-500 font-medium">{job.employerName}</span>
                             </div>
                             
-                            <h5 className="text-white font-bold text-sm">{job.title}</h5>
-                            <p className="text-xs text-slate-300 leading-relaxed max-w-xl">{job.description}</p>
+                            <h5 className="text-stone-900 font-bold text-sm">{job.title}</h5>
+                            <p className="text-xs text-stone-600 leading-relaxed max-w-xl">{job.description}</p>
                             
                             {/* Skills required map */}
                             <div className="flex flex-wrap gap-1.5 items-center">
-                              <span className="text-[9px] text-slate-400 uppercase font-semibold mr-1">Skills needed:</span>
+                              <span className="text-[9px] text-stone-500 uppercase font-semibold mr-1">Skills needed:</span>
                               {job.keySkillsRequired.map((s, id) => {
                                 const included = candidateSkills.has(s.toLowerCase());
                                 return (
-                                  <span key={id} className={`text-[9px] px-2 py-0.5 rounded border transition-colors ${
+                                  <span key={id} className={`text-[9px] px-2 py-0.5 rounded border font-sans font-semibold transition-colors ${
                                     included 
-                                      ? "bg-teal-500/10 text-teal-400 border-teal-500/20 font-bold" 
-                                      : "bg-slate-850 text-slate-400 border-slate-800"
+                                      ? "bg-emerald-50 text-emerald-800 border-emerald-200 font-bold" 
+                                      : "bg-white text-stone-400 border-stone-200"
                                   }`}>
                                     {s}
                                   </span>
@@ -1236,31 +945,31 @@ export default function App() {
                             </div>
                           </div>
 
-                          <div className="flex flex-col md:items-end justify-between border-t md:border-t-0 border-slate-800/80 pt-3 md:pt-0 gap-3 min-w-[200px]">
+                          <div className="flex flex-col md:items-end justify-between border-t md:border-t-0 border-stone-200 pt-3 md:pt-0 gap-3 min-w-[200px]">
                             {/* Match Progress Ring visual mock */}
                             <div className="flex items-center gap-2.5">
                               <div className="text-right">
-                                <span className="text-[10px] text-slate-400 uppercase font-bold block">Compatibility Target</span>
-                                <span className={`text-sm font-bold ${finalScore >= 75 ? "text-emerald-400" : finalScore >= 40 ? "text-amber-400" : "text-slate-400"}`}>
+                                <span className="text-[10px] text-stone-400 uppercase font-bold block">Compatibility Target</span>
+                                <span className={`text-sm font-bold ${finalScore >= 75 ? "text-emerald-700" : finalScore >= 40 ? "text-amber-700" : "text-stone-500"}`}>
                                   {finalScore}% Fit Rating
                                 </span>
                               </div>
-                              <div className="w-12 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                              <div className="w-12 h-1.5 bg-stone-200 rounded-full overflow-hidden">
                                 <div 
-                                  className={`h-full rounded-full ${finalScore >= 75 ? "bg-emerald-400" : finalScore >= 40 ? "bg-amber-400" : "bg-slate-400"}`}
+                                  className={`h-full rounded-full ${finalScore >= 75 ? "bg-emerald-600" : finalScore >= 40 ? "bg-amber-500" : "bg-stone-400"}`}
                                   style={{ width: `${finalScore}%` }}
                                 ></div>
                               </div>
                             </div>
 
                             <div className="space-y-1 text-left md:text-right">
-                              <div className="text-[10px] text-slate-400">Location: <span className="text-white font-semibold">{job.location}</span></div>
-                              <div className="text-[10px] text-slate-400">Salary scale: <span className="text-teal-300 font-semibold">{job.salaryRange}</span></div>
+                              <div className="text-[10px] text-stone-500">Location: <span className="text-stone-800 font-semibold">{job.location}</span></div>
+                              <div className="text-[10px] text-stone-500">Salary scale: <span className="text-emerald-700 font-semibold">{job.salaryRange}</span></div>
                             </div>
 
                             {/* Applied state / Button */}
                             {appliedRecord ? (
-                              <div className="flex items-center gap-1.5 bg-slate-850 border border-slate-800 px-3.5 py-1.5 rounded-lg text-[10px] text-teal-400 md:self-end font-bold uppercase tracking-wider">
+                              <div className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-205 px-3.5 py-1.5 rounded-lg text-[10px] text-emerald-800 md:self-end font-bold uppercase tracking-wider">
                                 <Check className="h-3 w-3 stroke-[2.5]" />
                                 Shortlisted/Pending
                               </div>
@@ -1268,7 +977,7 @@ export default function App() {
                               <button
                                 onClick={() => handleApplyJobWeb(selectedSeekerId, job.id)}
                                 disabled={loading[`apply-${job.id}`]}
-                                className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-4 py-1.5 rounded-lg text-xs cursor-pointer text-center"
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer text-center shadow-xs transition-colors"
                               >
                                 {loading[`apply-${job.id}`] ? "Applying..." : "Submit Match Application"}
                               </button>
@@ -1289,17 +998,17 @@ export default function App() {
         {/* TAB 3: EMPLOYER SYSTEM & AI SAFETY AGENT */}
         {activeTab === "employers" && (
           <div className="space-y-8">
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800">
+            <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Briefcase className="text-teal-400" />
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                    <Briefcase className="text-emerald-600" />
                     Employer Opportunities Dashboard
                   </h3>
-                  <p className="text-xs text-slate-400">Allows agricultural cooperatives, traders, NGOs, or local smallholders to list openings. Automatically scanned by **Fraud Intel Agent-4**.</p>
+                  <p className="text-xs text-stone-500">Allows agricultural cooperatives, traders, NGOs, or local smallholders to list openings. Automatically scanned by **Fraud Intel Agent-4**.</p>
                 </div>
 
-                <div className="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/20 p-2.5 rounded-lg">
+                <div className="text-xs bg-amber-50 text-amber-800 border border-amber-200/80 p-2.5 rounded-lg font-medium">
                   🛡️ **AI Guardrails Activated:** Listings seeking upfront registration fees, payment till deposits, or guaranteed lottery windfalls are flagged instantly.
                 </div>
               </div>
@@ -1311,49 +1020,49 @@ export default function App() {
                     key={id}
                     type="button"
                     onClick={() => handleApplyTemplateJob(tpl)}
-                    className="p-3 bg-slate-900 hover:bg-slate-850 text-left rounded-xl border border-slate-800 hover:border-slate-700 transition"
+                    className="p-3 bg-stone-50 hover:bg-emerald-50/20 text-left rounded-xl border border-stone-200 hover:border-emerald-300 transition-all font-sans cursor-pointer group"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-bold text-white truncate max-w-[80%]">{tpl.title}</span>
-                      <span className="text-[8px] bg-slate-800 text-slate-400 px-1 py-0.5 rounded font-mono uppercase">{tpl.location}</span>
+                      <span className="text-xs font-bold text-stone-800 truncate max-w-[80%] group-hover:text-emerald-800">{tpl.title}</span>
+                      <span className="text-[8px] bg-stone-200 text-stone-600 px-1.5 py-0.5 rounded font-mono uppercase font-semibold">{tpl.location}</span>
                     </div>
-                    <p className="text-[10px] text-slate-400 line-clamp-1">{tpl.description}</p>
+                    <p className="text-[10px] text-stone-500 line-clamp-1 italic">"{tpl.description}"</p>
                   </button>
                 ))}
               </div>
 
               {/* Form entry */}
-              <form onSubmit={handlePostJobWeb} className="grid grid-cols-1 md:grid-cols-12 gap-5 pt-4 border-t border-slate-900">
+              <form onSubmit={handlePostJobWeb} className="grid grid-cols-1 md:grid-cols-12 gap-5 pt-4 border-t border-stone-100">
                 <div className="md:col-span-4">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Official Title of Role</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Official Title of Role</label>
                   <input
                     type="text"
                     required
                     value={jobForm.title}
                     onChange={(e) => setJobForm({ ...jobForm, title: e.target.value })}
                     placeholder="e.g. Apprentice Tractor Welder"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-4">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Employer Name / Inst.</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Employer Name / Inst.</label>
                   <input
                     type="text"
                     required
                     value={jobForm.employerName}
                     onChange={(e) => setJobForm({ ...jobForm, employerName: e.target.value })}
                     placeholder="e.g. Mumbuni Cooperative"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-4">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Region Hub</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Region Hub</label>
                   <select
                     value={jobForm.location}
                     onChange={(e) => setJobForm({ ...jobForm, location: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   >
                     <option value="Machakos">Machakos Corridor</option>
                     <option value="Kitui">Kitui Central</option>
@@ -1362,47 +1071,47 @@ export default function App() {
                 </div>
 
                 <div className="md:col-span-8">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Brief description (clearly outline duties, local facilities, or physical expectations)</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Brief description (clearly outline duties, local facilities, or physical expectations)</label>
                   <textarea
                     rows={2}
                     required
                     value={jobForm.description}
                     onChange={(e) => setJobForm({ ...jobForm, description: e.target.value })}
                     placeholder="Describe specific actions needed. Open to illiterate people? Is tool handling manual? Bus travel provided?"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-4">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Key Skills Required (Comma Separated)</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Key Skills Required (Comma Separated)</label>
                   <input
                     type="text"
                     value={jobForm.keySkills}
                     onChange={(e) => setJobForm({ ...jobForm, keySkills: e.target.value })}
                     placeholder="Mechanical Maintenance, Agricultural Harvesting, etc"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-6">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Compensation Package / Hourly Rate</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Compensation Package / Hourly Rate</label>
                   <input
                     type="text"
                     value={jobForm.salaryRange}
                     onChange={(e) => setJobForm({ ...jobForm, salaryRange: e.target.value })}
                     placeholder="e.g. KES 15,000 / month, or KES 500 / day cash"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
                 <div className="md:col-span-6">
-                  <label className="block text-slate-305 text-xs font-semibold mb-1.5">Hiring Duration</label>
+                  <label className="block text-stone-750 text-xs font-semibold mb-1.5">Hiring Duration</label>
                   <input
                     type="text"
                     value={jobForm.duration}
                     onChange={(e) => setJobForm({ ...jobForm, duration: e.target.value })}
                     placeholder="e.g. Full-Time, 2-Month Seasonal, Casual Piecework"
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-150 rounded-lg p-2 text-xs focus:ring-1 focus:ring-teal-500"
+                    className="w-full bg-stone-50 border border-stone-200 text-stone-900 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
 
@@ -1410,7 +1119,7 @@ export default function App() {
                   <button
                     type="submit"
                     disabled={loading.postJobWeb}
-                    className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-6 py-2 rounded-lg cursor-pointer text-xs"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-lg cursor-pointer text-xs shadow-sm transition-colors"
                   >
                     {loading.postJobWeb ? "AI Safety Agent Scanning..." : "Audit & Post Opportunity"}
                   </button>
@@ -1419,51 +1128,51 @@ export default function App() {
             </div>
 
             {/* LIST OF SYSTEM JOBS REPORT FOR REVIEWING CONTROLS */}
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800">
-              <h4 className="text-sm font-bold text-white mb-4 flex items-center justify-between">
+            <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+              <h4 className="text-sm font-bold text-stone-900 mb-4 flex items-center justify-between">
                 <span>System Postings & Anti-Fraud Logs</span>
-                <span className="text-xs text-slate-400">Total Opportunities tracked: {jobs.length}</span>
+                <span className="text-xs text-stone-500">Total Opportunities tracked: {jobs.length}</span>
               </h4>
 
               <div className="overflow-x-auto text-xs">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="py-2.5 font-semibold">Id</th>
-                      <th className="py-2.5 font-semibold">Job Title</th>
-                      <th className="py-2.5 font-semibold">Employer Name</th>
-                      <th className="py-2.5 font-semibold">Match Hub</th>
-                      <th className="py-2.5 font-semibold text-center">Safety Rating Score</th>
-                      <th className="py-2.5 font-semibold">Decision Audit Note</th>
-                      <th className="py-2.5 font-semibold text-right">Status Tag</th>
+                    <tr className="border-b border-stone-200 text-stone-550">
+                      <th className="py-2.5 font-bold">Id</th>
+                      <th className="py-2.5 font-bold">Job Title</th>
+                      <th className="py-2.5 font-bold">Employer Name</th>
+                      <th className="py-2.5 font-bold">Match Hub</th>
+                      <th className="py-2.5 font-bold text-center">Safety Rating Score</th>
+                      <th className="py-2.5 font-bold">Decision Audit Note</th>
+                      <th className="py-2.5 font-bold text-right">Status Tag</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/60">
+                  <tbody className="divide-y divide-stone-100">
                     {jobs.map((j) => (
-                      <tr key={j.id} className="hover:bg-slate-900/40">
-                        <td className="py-3 font-mono font-bold text-slate-500">{j.id}</td>
-                        <td className="py-3 font-bold text-white max-w-xs truncate">{j.title}</td>
-                        <td className="py-3 text-slate-300">{j.employerName}</td>
-                        <td className="py-3 text-slate-400">{j.location}</td>
+                      <tr key={j.id} className="hover:bg-stone-50/50">
+                        <td className="py-3 font-mono font-bold text-stone-400">{j.id}</td>
+                        <td className="py-3 font-bold text-stone-800 max-w-xs truncate">{j.title}</td>
+                        <td className="py-3 text-stone-600">{j.employerName}</td>
+                        <td className="py-3 text-stone-550">{j.location}</td>
                         <td className="py-3 text-center">
-                          <span className={`px-2 py-0.5 rounded font-mono font-bold text-[10px] ${
+                          <span className={`px-2 py-0.5 rounded font-mono font-bold text-[10px] border ${
                             j.fraudScore >= 75 
-                              ? "bg-red-500/10 text-red-400 border border-red-500/20" 
+                              ? "bg-rose-50 text-rose-700 border-rose-200" 
                               : j.fraudScore >= 40 
-                              ? "bg-amber-500/10 text-amber-400 border border-amber-500/20" 
-                              : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                              ? "bg-amber-50 text-amber-700 border-amber-200" 
+                              : "bg-emerald-50 text-emerald-800 border-emerald-250"
                           }`}>
                             {j.fraudScore} / 100
                           </span>
                         </td>
-                        <td className="py-3 text-slate-400 max-w-xs truncate" title={j.fraudExplanation}>
+                        <td className="py-3 text-stone-500 max-w-xs truncate" title={j.fraudExplanation}>
                           {j.fraudExplanation}
                         </td>
                         <td className="py-3 text-right">
-                          <span className={`px-2 py-0.5 rounded text-[9px] uppercase font-bold ${
+                          <span className={`px-2 py-0.5 rounded text-[9px] uppercase font-bold border ${
                             j.status === "verified" 
-                              ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" 
-                              : "bg-red-500/15 text-red-400 border border-red-500/30 animate-pulse"
+                              ? "bg-emerald-50 text-emerald-800 border-emerald-200" 
+                              : "bg-rose-50 text-rose-700 border-rose-200 animate-pulse"
                           }`}>
                             {j.status}
                           </span>
@@ -1482,36 +1191,36 @@ export default function App() {
         {/* TAB 4: TRAINING & COURSE DIRECTORY */}
         {activeTab === "training" && (
           <div className="space-y-6">
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800">
+            <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
               <div className="max-w-3xl mb-6">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <BookOpen className="text-teal-400" />
+                <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                  <BookOpen className="text-emerald-600" />
                   Rural Capacity Building & NGO Learnerships
                 </h3>
-                <p className="text-sm text-slate-300 mt-1">
+                <p className="text-sm text-stone-650 mt-1">
                   When seekers are unlisted for job requirements due to structural training lags, the Career Coach Agent directs them directly to physical workshops near local library pods. Zero computing power or data bundles are required for enrollment!
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {courses.map((course) => (
-                  <div key={course.id} className="bg-slate-900 rounded-xl border border-slate-800 p-5 flex flex-col justify-between">
+                  <div key={course.id} className="bg-stone-50 rounded-xl border border-stone-200 p-5 flex flex-col justify-between hover:border-emerald-300 hover:bg-stone-50/90 transition-all shadow-2xs">
                     <div className="space-y-3">
                       <div className="flex justify-between items-start gap-2">
-                        <span className="bg-slate-850 border border-slate-800 text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded text-indigo-300">
+                        <span className="bg-stone-200 border border-stone-300/40 text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded text-stone-600">
                           {course.id}
                         </span>
-                        <span className="text-[10px] text-slate-400 font-bold uppercase">{course.duration}</span>
+                        <span className="text-[10px] text-stone-400 font-bold uppercase">{course.duration}</span>
                       </div>
 
-                      <h4 className="text-white font-bold text-sm leading-snug">{course.title}</h4>
-                      <p className="text-xs text-slate-400 line-clamp-3">{course.description}</p>
+                      <h4 className="text-stone-900 font-bold text-sm leading-snug">{course.title}</h4>
+                      <p className="text-xs text-stone-500 line-clamp-3">{course.description}</p>
                       
-                      <div className="bg-slate-950 p-2.5 rounded border border-slate-800/80">
-                        <span className="text-[9px] font-bold text-slate-400 uppercase block mb-1">Empowers with Skills:</span>
+                      <div className="bg-white p-2.5 rounded border border-stone-200/80">
+                        <span className="text-[9px] font-bold text-stone-500 uppercase block mb-1 font-mono">Empowers with Skills:</span>
                         <div className="flex flex-wrap gap-1">
                           {course.skillsTaught.map((skill, index) => (
-                            <span key={index} className="text-[9px] bg-slate-900 border border-slate-800/60 text-slate-300 px-1.5 py-0.5 rounded">
+                            <span key={index} className="text-[9px] bg-emerald-50 border border-emerald-100 text-emerald-850 px-1.5 py-0.5 rounded font-medium">
                               {skill}
                             </span>
                           ))}
@@ -1519,12 +1228,12 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="border-t border-slate-850/80 pt-4 mt-4 flex items-center justify-between text-xs text-slate-400">
+                    <div className="border-t border-stone-200 pt-4 mt-4 flex items-center justify-between text-xs text-stone-500">
                       <div>
-                        <span className="block text-[10px] text-slate-500 uppercase">Provider</span>
-                        <span className="text-slate-300 font-semibold">{course.provider}</span>
+                        <span className="block text-[10px] text-stone-400 uppercase font-mono">Provider</span>
+                        <span className="text-stone-700 font-semibold">{course.provider}</span>
                       </div>
-                      <span className="bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded border border-teal-500/10 text-[10px] font-mono">
+                      <span className="bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded border border-emerald-250/30 text-[10px] font-mono font-bold">
                         {course.location}
                       </span>
                     </div>
@@ -1544,16 +1253,16 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               
               {/* SMS Backplane logs */}
-              <div className="lg:col-span-8 bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
-                <div className="flex justify-between items-center border-b border-slate-800 pb-3">
+              <div className="lg:col-span-8 bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                <div className="flex justify-between items-center border-b border-stone-100 pb-3">
                   <div className="flex items-center gap-2">
-                    <MessageSquare className="text-teal-400" />
-                    <h3 className="text-base font-bold text-white">Live USSD/SMS Backplane Gateway Auditing</h3>
+                    <MessageSquare className="text-emerald-600" />
+                    <h3 className="text-base font-bold text-stone-900">Live USSD/SMS Backplane Gateway Auditing</h3>
                   </div>
                   <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 </div>
 
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-stone-500">
                   This console lists all incoming interactive requests submitted to the core platform via virtual telco channels. It displays parsed directions and tracks which AI Agents fired during routing.
                 </div>
 
@@ -1561,31 +1270,31 @@ export default function App() {
                   {smsLogs.map((log) => {
                     const isOut = log.direction === "outbound";
                     return (
-                      <div key={log.id} className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between gap-4">
+                      <div key={log.id} className="p-3 bg-stone-50 rounded-xl border border-stone-200/60 flex items-center justify-between gap-4">
                         <div className="flex items-center gap-3 w-1/3 min-w-[150px]">
-                          <span className={`px-2 py-0.5 rounded text-[8px] font-mono font-bold uppercase ${
-                            isOut ? "bg-indigo-500/15 text-indigo-400" : "bg-teal-500/15 text-teal-400"
+                          <span className={`px-2 py-0.5 rounded text-[8px] font-mono font-bold uppercase border ${
+                            isOut ? "bg-amber-50 text-amber-800 border-amber-200" : "bg-emerald-50 text-emerald-800 border-emerald-200"
                           }`}>
                             {log.direction}
                           </span>
                           <div>
-                            <span className="font-mono text-xs font-bold text-white block">{log.phoneNumber}</span>
-                            <span className="text-[10px] text-slate-500 font-mono">{new Date(log.timestamp).toLocaleTimeString()}</span>
+                            <span className="font-mono text-xs font-bold text-stone-850 block">{log.phoneNumber}</span>
+                            <span className="text-[10px] text-stone-400 font-mono">{new Date(log.timestamp).toLocaleTimeString()}</span>
                           </div>
                         </div>
 
-                        <div className="text-xs text-slate-300 flex-1 leading-relaxed border-l border-slate-800 pl-4">
-                          <p className="font-mono bg-black/40 p-1.5 rounded border border-slate-950 text-[11px] block text-amber-200">
+                        <div className="text-xs text-stone-600 flex-1 leading-relaxed border-l border-stone-200 pl-4">
+                          <p className="font-mono bg-stone-900 text-amber-300 p-1.5 rounded border border-stone-950 text-[11px] block">
                             {log.text}
                           </p>
-                          <span className="text-[10px] text-slate-400 font-semibold block mt-1">
-                            Action result: <span className="text-slate-200">{log.resolvedAction}</span>
+                          <span className="text-[10px] text-stone-500 font-semibold block mt-1">
+                            Action result: <span className="text-stone-800 font-bold">{log.resolvedAction}</span>
                           </span>
                         </div>
 
                         <div className="text-right">
-                          <span className="block text-[9px] text-slate-500 uppercase font-mono tracking-tight">AI Backplane</span>
-                          <span className="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-teal-300 font-mono">
+                          <span className="block text-[9px] text-stone-400 uppercase font-mono tracking-tight">AI Backplane</span>
+                          <span className="text-[10px] bg-stone-200 px-2 py-0.5 rounded text-stone-700 font-mono font-bold border border-stone-300/40">
                             {log.agentTriggered}
                           </span>
                         </div>
@@ -1593,7 +1302,7 @@ export default function App() {
                     );
                   })}
                   {smsLogs.length === 0 && (
-                    <div className="p-8 text-center text-slate-600 bg-slate-900 rounded-xl border border-dashed border-slate-800">
+                    <div className="p-8 text-center text-stone-400 bg-stone-50 rounded-xl border border-dashed border-stone-200">
                       No live SMS Logs collected yet in this context. Send simulated SMS text above to populate.
                     </div>
                   )}
@@ -1601,30 +1310,30 @@ export default function App() {
               </div>
 
               {/* Admin configuration summary stats */}
-              <div className="lg:col-span-4 bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
-                <h4 className="text-sm font-bold text-white border-b border-slate-800 pb-2">Scaffolding Verification Controls</h4>
+              <div className="lg:col-span-4 bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                <h4 className="text-sm font-bold text-stone-900 border-b border-stone-150 pb-2">Scaffolding Verification Controls</h4>
                 
                 <div className="space-y-4">
-                  <div className="bg-slate-905 border border-slate-800 p-3.5 rounded-xl space-y-2">
-                    <span className="text-xs text-slate-300 font-bold block">Relational Integrity Tracker</span>
-                    <p className="text-[11px] text-slate-400 leading-relaxed">
+                  <div className="bg-stone-50 border border-stone-200/80 p-3.5 rounded-xl space-y-2">
+                    <span className="text-xs text-stone-800 font-bold block">Relational Integrity Tracker</span>
+                    <p className="text-[11px] text-stone-500 leading-relaxed">
                       All seeker registrations, matchings, employer fraud scores, and logs are persisted inside our local Node Express relational DB simulation layer mimicry of PostgreSQL schemas.
                     </p>
                   </div>
 
-                  <div className="bg-slate-905 border border-slate-800 p-3.5 rounded-xl space-y-2">
-                    <span className="text-xs text-slate-300 font-bold block">Gemini Model Parameters</span>
-                    <div className="text-xs text-slate-400 font-mono space-y-1">
-                      <div className="flex justify-between"><span>Model ID:</span><span className="text-teal-400">gemini-3.5-flash</span></div>
-                      <div className="flex justify-between"><span>Temperature:</span><span className="text-teal-400">0.2 (low variance)</span></div>
-                      <div className="flex justify-between"><span>Response Schema:</span><span className="text-teal-400">Strict JSON</span></div>
-                      <div className="flex justify-between"><span>Active Latency:</span><span className="text-teal-400">~240ms</span></div>
+                  <div className="bg-stone-50 border border-stone-200/80 p-3.5 rounded-xl space-y-2">
+                    <span className="text-xs text-stone-800 font-bold block">Gemini Model Parameters</span>
+                    <div className="text-xs text-stone-500 font-mono space-y-1">
+                      <div className="flex justify-between"><span>Model ID:</span><span className="text-emerald-700 font-bold">gemini-3.5-flash</span></div>
+                      <div className="flex justify-between"><span>Temperature:</span><span className="text-emerald-700 font-bold">0.2</span></div>
+                      <div className="flex justify-between"><span>Response Schema:</span><span className="text-emerald-700 font-bold">Strict JSON</span></div>
+                      <div className="flex justify-between"><span>Active Latency:</span><span className="text-emerald-700 font-bold">~240ms</span></div>
                     </div>
                   </div>
 
                   <button
                     onClick={handleResetSystem}
-                    className="w-full bg-red-950/40 text-red-300 border border-red-500/30 hover:bg-red-950/80 p-3.5 rounded-lg text-xs font-semibold cursor-pointer text-center"
+                    className="w-full bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 p-3.5 rounded-lg text-xs font-bold cursor-pointer text-center transition-colors shadow-xs"
                   >
                     🚀 Flush Memory Data & Reset Database
                   </button>
@@ -1642,14 +1351,14 @@ export default function App() {
             
             {/* Nav folders left */}
             <div className="lg:col-span-3 space-y-2">
-              <div className="bg-slate-950 p-4 border border-slate-800 rounded-2xl">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-bold block mb-3">Modular Specifications</span>
+              <div className="bg-white p-4 border border-stone-200 rounded-2xl shadow-sm">
+                <span className="text-[10px] text-stone-500 uppercase tracking-wider font-bold block mb-3 font-mono">Modular Specifications</span>
                 
                 <div className="space-y-1.5">
                   <button
                     onClick={() => setActiveBlueprintSubTab("prd")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "prd" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "prd" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><FileText className="h-3.5 w-3.5" /> 1. Product PRD</span>
@@ -1658,8 +1367,8 @@ export default function App() {
 
                   <button
                     onClick={() => setActiveBlueprintSubTab("arch")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "arch" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "arch" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><Layers className="h-3.5 w-3.5" /> 2. System Architecture</span>
@@ -1668,8 +1377,8 @@ export default function App() {
 
                   <button
                     onClick={() => setActiveBlueprintSubTab("db")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "db" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "db" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><Database className="h-3.5 w-3.5" /> 3. PostgreSQL Schema</span>
@@ -1678,8 +1387,8 @@ export default function App() {
 
                   <button
                     onClick={() => setActiveBlueprintSubTab("api")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "api" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "api" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><Code className="h-3.5 w-3.5" /> 4. REST Specifications</span>
@@ -1688,8 +1397,8 @@ export default function App() {
 
                   <button
                     onClick={() => setActiveBlueprintSubTab("agents")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "agents" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "agents" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><Cpu className="h-3.5 w-3.5" /> 5. AI Agents Design</span>
@@ -1698,8 +1407,8 @@ export default function App() {
 
                   <button
                     onClick={() => setActiveBlueprintSubTab("ussdflow")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "ussdflow" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "ussdflow" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5" /> 6. SMS & USSD Flows</span>
@@ -1708,8 +1417,8 @@ export default function App() {
 
                   <button
                     onClick={() => setActiveBlueprintSubTab("roadmap")}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                      activeBlueprintSubTab === "roadmap" ? "bg-teal-500 text-slate-950 font-semibold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                      activeBlueprintSubTab === "roadmap" ? "bg-emerald-600 text-white font-semibold shadow-xs" : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                     }`}
                   >
                     <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> 7. MVP Roadmap</span>
@@ -1720,7 +1429,7 @@ export default function App() {
             </div>
 
             {/* Document display right */}
-            <div className="lg:col-span-9 bg-slate-950 p-7 rounded-2xl border border-slate-800 space-y-6 text-slate-200 font-sans max-h-[800px] overflow-y-auto scrollbar-thin">
+            <div className="lg:col-span-9 bg-white p-7 rounded-2xl border border-stone-200 shadow-sm space-y-6 text-stone-700 font-sans max-h-[800px] overflow-y-auto scrollbar-thin">
               
               {/* SUBTAB 1: PRODUCT REQUIREMENTS DOCUMENT */}
               {activeBlueprintSubTab === "prd" && (
