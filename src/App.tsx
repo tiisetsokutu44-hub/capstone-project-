@@ -706,14 +706,43 @@ export default function App() {
         {/* TAB 2: JOB SEEKER WEB PORTAL */}
         {activeTab === "seekers" && (
           <div className="space-y-8">
+            {/* HERO BANNER SECTION representing community togetherness */}
+            <div className="bg-white rounded-2xl border border-stone-200 shadow-xs overflow-hidden flex flex-col md:flex-row items-stretch">
+              <div className="flex-1 p-6 md:p-8 flex flex-col justify-center space-y-4">
+                <div>
+                  <span className="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded-full font-mono font-bold uppercase tracking-wider">
+                    RuralTogether Initiative
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-stone-900 leading-tight">
+                  Welcome to <span className="text-emerald-600">RuralConnect</span>
+                </h2>
+                <p className="text-sm text-stone-600 leading-relaxed max-w-lg">
+                  Emporous partnerships start with trusted community networks. We support local field workers, smallholders, and rural cooperatives across Machakos, Kitui, and Makueni to unlock full potential, bridge training gaps, and build resilient togetherness with zero mobile data barrier.
+                </p>
+                <div className="flex items-center gap-1.5 text-xs text-stone-500">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Active matching intelligence and fraud screening safeguards are live
+                </div>
+              </div>
+              <div className="w-full md:w-2/5 min-h-[220px] md:min-h-auto relative bg-stone-50 border-t md:border-t-0 md:border-l border-stone-200">
+                <img 
+                  src="/src/assets/images/community_realistic_header_1780487945969.png" 
+                  alt="Rural togetherness and agricultural collaboration" 
+                  className="w-full h-full object-cover select-none"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </div>
+
             <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
-                  <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                  <h3 className="text-base font-bold text-stone-900 flex items-center gap-2">
                     <Users className="text-emerald-600 hover:scale-110 transition-transform" />
-                    Web Portal Seeker Intake Hub
+                    Candidate Registration Intake
                   </h3>
-                  <p className="text-xs text-stone-500">Allows field workers or agency staff to register candidates with speech-to-text or structured descriptions.</p>
+                  <p className="text-xs text-stone-500">Register field candidates to automatically analyze matching opportunities and run safety verification.</p>
                 </div>
                 
                 <div className="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 p-2.5 rounded-lg max-w-sm font-medium">
